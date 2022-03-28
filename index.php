@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>FlexStart Bootstrap Template - Index</title>
+  <title>SiBaca - Sistem Bantu Tuna Wicara</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -44,7 +44,6 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span>FlexStart</span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -87,12 +86,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+          <h1 data-aos="fade-up">SiBaca</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Sistem Bantu Tuna Wicara</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
               <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Get Started</span>
+                <span>Tentang SiBaca</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -115,16 +114,13 @@
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <div class="content">
-              <h3>Who We Are</h3>
-              <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat corrupti reprehenderit.</h2>
+              <h3>Tentang Aplikasi</h3>
+              <h2>Apa itu SiBaca?</h2>
               <p>
-                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
+                Sebuah inovasi yang dirancang untuk membantu penyandang tuna wicara dalam menjalani proses persidangan. Aplikasi ini memanfaatkan teknologi Text-To-Speech untuk mendukung pelayanan di Pengadilan Agama Kupang agar lebih maksimal dalam memberikan akses keadilan bagi seluruh masyarakat.
               </p>
               <div class="text-center text-lg-start">
-                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>Read More</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
+                
               </div>
             </div>
           </div>
@@ -1140,42 +1136,8 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-6">
 
-            <div class="row gy-4">
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Address</h3>
-                  <p>A108 Adam Street,<br>New York, NY 535022</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@example.com<br>contact@example.com</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-clock"></i>
-                  <h3>Open Hours</h3>
-                  <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <form action="forms/contact.php" method="post" class="php-email-form">
               <div class="row gy-4">
 
