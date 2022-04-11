@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SiBaca - Sistem Bantu Tuna Wicara</title>
   <meta content="" name="description">
 
@@ -36,7 +36,7 @@
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
       </a>
 
@@ -52,43 +52,55 @@
   </header><!-- End Header -->
 
     <!-- ======= Contact Section ======= -->
+	<?php
+	include('conn_to_db_sipp.php');
+	$query = mysqli_query($con, "SELECT perkara.nomor_perkara FROM perkara LEFT JOIN jadwalsidangweb ON jadwalsidangweb.IDPerkara=perkara.perkara_id WHERE jadwalsidangweb.tglSidang=CURDATE() ORDER BY alur_perkara_id, tanggal_pendaftaran DESC") or die(mysqli_connect_error());
+	$row = mysqli_fetch_assoc($query);
+	?>
+	
     <section id="contact" class="contact">
 
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2></h2>
-          <p>Sistem Bantu Tuna Wicara</p>
+          <p>Sistem Bantu Tuna Wicara</p><br>
+          <h2>Silahkan isi Nama, No. Perkara dan Pesan yang ingin anda sampaikan</h2>
         </header>
 
         <div class="row gy-4">
-
-
           <div class="col-lg-12">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
-
+            <form name="dynamic_form" id="dynamic_form" class="php-email-form">
+              <div class="row gy-4" id="dynamic_field_append">
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Nama" required>
+                  <input type="text" name="nama" class="form-control" placeholder="Nama Anda" >
                 </div>
-
-                <div class="col-md-6 ">
-                  <input type="text" class="form-control" name="noper" placeholder="No. Perkara" required>
+                <div class="col-md-6">
+				<select class="form-control" id="noper" name="noper">
+					<option value="" hidden>No. Perkara</option>
+					<?php do { ?>
+						<option value="<?=$row['nomor_perkara'];?>"><?=$row['nomor_perkara'];?></option>
+					<?php 
+						} while ($row= mysqli_fetch_assoc($query)); 
+					?>
+				</select>
                 </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
+				<div class="row gy-4">
+					<div class="col-md-11">
+						<textarea class="form-control" id="text1" name="text[]" rows="6" placeholder="Pesan Anda"></textarea>
+					</div>
+					<div class="col-md-1">
+						<button class="btn btn-success" class="butt js--triggerAnimation" onclick="responsiveVoice.speak($('#text1').val(), 'Indonesian Male', {rate: 1}); document.getElementById('sound').play();" type="button"  value="Play">PLAY</button>
+						<br><br>
+					</div>
+				</div>
               </div>
+			  <div class="row gy-4">
+                <div class="col-md-12 text-center">
+				<br>
+                  <button name="submit" id="submit" value="Submit" type="submit">SIMPAN </button>
+				  <button name="add" id="add_field" type="add">+ Tambah Baris</button>
+                </div>
+			  </div>
             </form>
 
           </div>
@@ -108,7 +120,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="index.php" class="logo d-flex align-items-center">
               <img src="assets/img/logo.png" alt="">
             </a>
             <p>Aplikasi yang dirancang oleh Tim IT Pengadilan Agama Kupang untuk membatu penyandang Tuna Wicara dalam proses persidangan.</p>
@@ -166,7 +178,40 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+ 
+  <!-- ResponsiveVoice-->
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=sFdzMLRD"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+ 
+ 
+        <script>
+          $(document).ready(function(){ 
+               var i = 1;
+			   suara1 = "responsiveVoice.speak($('#text";
+			   suara2 = "').val(), 'Indonesian Male', {rate: 1}); document.getElementById('sound').play();";
+               $('#add_field').click(function(){  
+                   i++; 
+                   $('#dynamic_field_append').append('<div class="row gy-4" id="row_remove'+i+'"><div class="col-md-11"><textarea class="form-control" id="text'+i+'" name="text[]" rows="6" placeholder="Pesan Anda"></textarea></div> <div class="col-md-1"> <button  type="button" class="btn btn-success" class="butt js--triggerAnimation" onclick="'+suara1+''+i+''+suara2+'">PLAY</button><br><br><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">HAPUS</button></div></div>');
+               });
+               $(document).on('click', '.btn_remove', function() {
+                   var button_id = $(this).attr("id");
+                   $('#row_remove'+button_id+'').remove();
+               });
+               $('#submit').click(function() {
+                   $.ajax({
+                       url:"simpan.php",
+                       method:"POST",
+                       data:$('#dynamic_form').serialize(),
+                       success:function(data) {  
+                           alert(data);
+                           $('#dynamic_form')[0].reset();
+                       }
+                   });
+               });
+        })
+;
+      </script>
+	  
 </body>
 
 </html>
