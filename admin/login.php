@@ -15,7 +15,8 @@ session_start();//session starts here
     <meta name="author" content="">
 
     <title>SiBaca - Login</title>
-
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -109,7 +110,7 @@ if(isset($_POST['login']))
     }  
     else  
     {  
-      echo "<script>alert('NIP atau Password SALAH!')</script>";  
+      echo "<script>alert('Username atau Password SALAH!')</script>";  
     }  
 }  
 ?>  

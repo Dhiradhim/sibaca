@@ -15,31 +15,17 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class="sidebar-brand-text mx-3">SINOS</div>
+                <div class="sidebar-brand-text mx-3">SiBaca</div>
             </a>
-					   <!-- Divider -->
-            <hr class="sidebar-divider">
-			<li class="nav-item">
-                <a class="nav-link" href="index.php">
-                    <span>Beranda</span></a>
-            </li>
-         
-		   <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 Aplikasi
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="ambilnosur.php">
-                    <span>Ambil Nomor Surat</span></a>
-            </li>
-			<li class="nav-item">
-                <a class="nav-link" href="daftarnosur.php">
-                    <span>Daftar Nomor Surat</span></a>
+			<li class="nav-item active">
+                <a class="nav-link" href="index.php">
+                    <span>Daftar</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -51,16 +37,9 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="pola.php">
-                    <span>Pola Klasifikasi Surat</span></a>
+                <a class="nav-link" href="Manual.pdf">
+                    <span>Panduan Aplikasi</span></a>
             </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="panduan.php">
-                    <span>Panduan Penggunaan</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -143,9 +122,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-	<?php include('logout-modal.html');?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

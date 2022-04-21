@@ -20,7 +20,9 @@ if(!$_SESSION['nip'])
     <meta name="author" content="">
 
     <title>SiBaca - Sistem Bantu Tuna Wicara</title>
-
+	
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -71,7 +73,7 @@ if(!$_SESSION['nip'])
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="pola.php">
+                <a class="nav-link" href="Manual.pdf">
                     <span>Panduan Aplikasi</span></a>
             </li>
             <!-- Divider -->
